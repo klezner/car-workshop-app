@@ -17,4 +17,7 @@
     <li>
         <a href="${pageContext.request.contextPath}/">Home</a>
     </li>
+    <li>
+        <a href="${pageContext.request.contextPath}/cars">Car list</a>
+    </li>
 </ul>
