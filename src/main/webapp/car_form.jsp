@@ -51,6 +51,7 @@
         <button type="reset">Reset</button>
         <button type="submit">Submit</button>
     </form>
+    <a href="${pageContext.request.contextPath}/index.jsp">Back to main page</a>
 </div>
 <jsp:include page="footers.jsp"/>
 </body>

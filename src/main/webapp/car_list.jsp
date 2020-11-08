@@ -18,37 +18,17 @@
     <jsp:include page="navigator.jsp"/>
     <table>
         <tr>
-            <th>Id</th>
             <th>Car name</th>
             <th>Registration number</th>
-            <th>Engine type</th>
-            <th>Engine capacity</th>
-            <th>Mileage</th>
-            <th>VIN number</th>
             <th>Actions</th>
         </tr>
         <c:forEach items="${requestScope.cars}" var="car">
             <tr>
                 <td>
-                    ${car.id}
-                </td>
-                <td>
                     ${car.name}
                 </td>
                 <td>
                     ${car.registrationNumber}
-                </td>
-                <td>
-                    ${car.engineType.commonName}
-                </td>
-                <td>
-                    ${car.engineCapacity}
-                </td>
-                <td>
-                    ${car.mileage}
-                </td>
-                <td>
-                    ${car.vinNumber}
                 </td>
                 <td>
                     <a href="${pageContext.request.contextPath}/car/details?id=${car.id}">Details</a>
@@ -58,6 +38,7 @@
             </tr>
         </c:forEach>
     </table>
+    <a href="${pageContext.request.contextPath}/index.jsp">Back to main page</a>
 </div>
 <jsp:include page="footers.jsp"/>
 </body>

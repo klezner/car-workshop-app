@@ -18,19 +18,13 @@
     <jsp:include page="navigator.jsp"/>
     <table>
         <tr>
-            <th>Id</th>
             <th>First name</th>
             <th>Last name</th>
-            <th>Date of birth</th>
             <th>Employment level</th>
-            <th>Salary</th>
             <th>Actions</th>
         </tr>
         <c:forEach items="${requestScope.mechanics}" var="mechanic">
             <tr>
-                <td>
-                        ${mechanic.id}
-                </td>
                 <td>
                         ${mechanic.firstName}
                 </td>
@@ -38,22 +32,17 @@
                         ${mechanic.lastName}
                 </td>
                 <td>
-                        ${mechanic.birthDate}
-                </td>
-                <td>
                         ${mechanic.employmentLevel.commonName}
                 </td>
                 <td>
-                        ${mechanic.salary}
-                </td>
-                <td>
-                    <a>Details</a>
+                    <a href="${pageContext.request.contextPath}/mechanic/details?id=${mechanic.id}">Details</a>
                     <a>Edit</a>
                     <a>Remove</a>
                 </td>
             </tr>
         </c:forEach>
     </table>
+    <a href="${pageContext.request.contextPath}/index.jsp">Back to main page</a>
 </div>
 <jsp:include page="footers.jsp"/>
 </body>
