@@ -19,8 +19,8 @@
     <table>
         <tr>
             <th>Id</th>
-            <th>Registration number</th>
             <th>Car name</th>
+            <th>Registration number</th>
             <th>Engine type</th>
             <th>Engine capacity</th>
             <th>Mileage</th>
@@ -51,7 +51,7 @@
                     ${car.vinNumber}
                 </td>
                 <td>
-                    <a>Details</a>
+                    <a href="${pageContext.request.contextPath}/car/details?id=${car.id}">Details</a>
                     <a>Edit</a>
                     <a>Remove</a>
                 </td>
