@@ -21,6 +21,9 @@
         <a href="${pageContext.request.contextPath}/cars">Car list</a>
     </li>
     <li>
+        <a href="${pageContext.request.contextPath}/car/form">Car adding form</a>
+    </li>
+    <li>
         <a href="${pageContext.request.contextPath}/mechanics">Mechanic list</a>
     </li>
 </ul>
