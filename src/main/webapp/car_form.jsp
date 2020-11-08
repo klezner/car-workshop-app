@@ -10,7 +10,7 @@
 <%@ page isELIgnored="false" %>
 <html>
 <head>
-    <title>Pet Form</title>
+    <title>Car Form</title>
     <jsp:include page="headers.jsp"/>
 </head>
 <body>

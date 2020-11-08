@@ -10,7 +10,7 @@
 <%@ page isELIgnored="false" %>
 <html>
 <head>
-    <title>Car list</title>
+    <title>Mechanic list</title>
     <jsp:include page="headers.jsp"/>
 </head>
 <body>

@@ -18,12 +18,15 @@
         <a href="${pageContext.request.contextPath}/">Home</a>
     </li>
     <li>
-        <a href="${pageContext.request.contextPath}/cars">Car list</a>
+        <a href="${pageContext.request.contextPath}/cars">Cars list</a>
     </li>
     <li>
         <a href="${pageContext.request.contextPath}/car/form">Car adding form</a>
     </li>
     <li>
-        <a href="${pageContext.request.contextPath}/mechanics">Mechanic list</a>
+        <a href="${pageContext.request.contextPath}/mechanics">Mechanics list</a>
+    </li>
+    <li>
+        <a href="${pageContext.request.contextPath}/mechanic/form">Mechanic adding form</a>
     </li>
 </ul>
