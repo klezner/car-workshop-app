@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Kris
-  Date: 07.11.2020
-  Time: 20:31
+  Date: 08.11.2020
+  Time: 17:30
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -19,36 +19,32 @@
     <table>
         <tr>
             <th>Id</th>
-            <th>Registration number</th>
-            <th>Car name</th>
-            <th>Engine type</th>
-            <th>Engine capacity</th>
-            <th>Mileage</th>
-            <th>VIN number</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Date of birth</th>
+            <th>Employment level</th>
+            <th>Salary</th>
             <th>Actions</th>
         </tr>
-        <c:forEach items="${requestScope.cars}" var="car">
+        <c:forEach items="${requestScope.mechanics}" var="mechanic">
             <tr>
                 <td>
-                    ${car.id}
+                        ${mechanic.id}
                 </td>
                 <td>
-                    ${car.name}
+                        ${mechanic.firstName}
                 </td>
                 <td>
-                    ${car.registrationNumber}
+                        ${mechanic.lastName}
                 </td>
                 <td>
-                    ${car.engineType.commonName}
+                        ${mechanic.birthDate}
                 </td>
                 <td>
-                    ${car.engineCapacity}
+                        ${mechanic.employmentLevel.commonName}
                 </td>
                 <td>
-                    ${car.mileage}
-                </td>
-                <td>
-                    ${car.vinNumber}
+                        ${mechanic.salary}
                 </td>
                 <td>
                     <a>Details</a>
@@ -62,4 +58,3 @@
 <jsp:include page="footers.jsp"/>
 </body>
 </html>
-

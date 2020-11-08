@@ -20,4 +20,7 @@
     <li>
         <a href="${pageContext.request.contextPath}/cars">Car list</a>
     </li>
+    <li>
+        <a href="${pageContext.request.contextPath}/mechanics">Mechanic list</a>
+    </li>
 </ul>

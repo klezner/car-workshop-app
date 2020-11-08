@@ -20,5 +20,6 @@
         <property name="show_sql">true</property>
 
         <mapping class="pl.kl.carworkshopapp.model.Car"/>
+        <mapping class="pl.kl.carworkshopapp.model.Mechanic"/>
     </session-factory>
 </hibernate-configuration>
