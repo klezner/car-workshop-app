@@ -17,19 +17,23 @@
 <div class="container">
     <jsp:include page="navigator.jsp"/>
     <form action="${pageContext.request.contextPath}/car/form" method="post">
+        <input type="hidden" value="${requestScope.modifiedCar.id}" readonly name="modifiedCarId">
         <div>
             <label>Name:</label>
-            <input type="text" name="name"/>
+            <input type="text" value="${requestScope.modifiedCar.name}" name="name"/>
         </div>
         <div>
             <label>Registration number:</label>
-            <input type="text" name="registration_number"/>
+            <input type="text" value="${requestScope.modifiedCar.registrationNumber}" name="registration_number"/>
         </div>
         <div>
             <label>Engine type:</label>
             <select name="engine_type">
                 <c:forEach items="${requestScope.availableEngineTypes}" var="engineType">
-                    <option value="${engineType}">
+                    <option value="${engineType}"
+                            <c:if test="${requestScope.modifiedCar.engineType==engineType}">
+                                selected
+                            </c:if>>
                             ${engineType.commonName}
                     </option>
                 </c:forEach>
@@ -37,15 +41,15 @@
         </div>
         <div>
             <label>Engine capacity:</label>
-            <input type="number" step="0.001" min="0" max="20" name="engine_capacity"/>
+            <input type="number" value="${requestScope.modifiedCar.engineCapacity}" step="0.001" min="0" max="20" name="engine_capacity"/>
         </div>
         <div>
             <label>Mileage:</label>
-            <input type="number" step="1" min="0" max="2999999" name="mileage"/>
+            <input type="number" value="${requestScope.modifiedCar.mileage}" step="1" min="0" max="2999999" name="mileage"/>
         </div>
         <div>
             <label>VIN number:<br/>
-                <input type="text" minlength="11" maxlength="11" name="vin_number"/>
+                <input type="text" value="${requestScope.modifiedCar.vinNumber}" minlength="17" maxlength="17" name="vin_number"/>
             </label>
         </div>
         <button type="reset">Reset</button>

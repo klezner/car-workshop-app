@@ -46,7 +46,10 @@
                     </tr>
                     <tr>
                         <th>Actions</th>
-                        <td>Edit<br/>Remove</td>
+                        <td>
+                            <a href="${pageContext.request.contextPath}/car/edit?id=${carToDisplay.id}">Edit</a><br/>
+                            <a>Remove</a>
+                        </td>
                     </tr>
                 </table>
             </div>

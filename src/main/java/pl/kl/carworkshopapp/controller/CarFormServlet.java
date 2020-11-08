@@ -22,7 +22,15 @@ public class CarFormServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String modifiedCarIdString = request.getParameter("modifiedCarId");
+        Long modifiedCarId = null;
+
+        if (modifiedCarIdString != null && !modifiedCarIdString.isEmpty()) {
+            modifiedCarId = Long.parseLong(modifiedCarIdString);
+        }
+
         Car car = new Car();
+        car.setId(modifiedCarId);
         car.setName(request.getParameter("name"));
         car.setRegistrationNumber(request.getParameter("registration_number"));
         car.setEngineType(EngineType.valueOf(request.getParameter("engine_type")));
