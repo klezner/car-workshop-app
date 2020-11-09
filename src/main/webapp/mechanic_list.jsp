@@ -36,7 +36,7 @@
                 </td>
                 <td>
                     <a href="${pageContext.request.contextPath}/mechanic/details?id=${mechanic.id}">Details</a>
-                    <a>Edit</a>
+                    <a href="${pageContext.request.contextPath}/mechanic/edit?id=${mechanic.id}">Edit</a>
                     <a>Remove</a>
                 </td>
             </tr>

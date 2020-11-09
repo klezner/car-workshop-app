@@ -42,7 +42,10 @@
                 </tr>
                 <tr>
                     <th>Actions</th>
-                    <td>Edit<br/>Remove</td>
+                    <td>
+                        <a href="${pageContext.request.contextPath}/mechanic/edit?id=${mechanicToDisplay.id}">Edit</a><br/>
+                        Remove
+                    </td>
                 </tr>
             </table>
         </div>

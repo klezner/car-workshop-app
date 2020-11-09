@@ -23,7 +23,15 @@ public class MechanicFormServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String modifiedMechanicIdString = request.getParameter("modifiedMechanicId");
+        Long modifiedMechanicId = null;
+
+        if (modifiedMechanicIdString != null && !modifiedMechanicIdString.isEmpty()) {
+            modifiedMechanicId = Long.parseLong(modifiedMechanicIdString);
+        }
+
         Mechanic mechanic = new Mechanic();
+        mechanic.setId(modifiedMechanicId);
         mechanic.setFirstName(request.getParameter("first_name"));
         mechanic.setLastName(request.getParameter("last_name"));
         mechanic.setBirthDate(LocalDate.parse(request.getParameter("birth_date")));
