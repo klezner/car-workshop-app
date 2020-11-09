@@ -37,7 +37,7 @@
                 <td>
                     <a href="${pageContext.request.contextPath}/mechanic/details?id=${mechanic.id}">Details</a>
                     <a href="${pageContext.request.contextPath}/mechanic/edit?id=${mechanic.id}">Edit</a>
-                    <a>Remove</a>
+                    <a href="${pageContext.request.contextPath}/mechanic/remove?id=${mechanic.id}">Remove</a>
                 </td>
             </tr>
         </c:forEach>

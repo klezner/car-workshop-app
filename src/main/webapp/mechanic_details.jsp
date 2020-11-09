@@ -44,7 +44,7 @@
                     <th>Actions</th>
                     <td>
                         <a href="${pageContext.request.contextPath}/mechanic/edit?id=${mechanicToDisplay.id}">Edit</a><br/>
-                        Remove
+                        <a href="${pageContext.request.contextPath}/mechanic/remove?id=${mechanicToDisplay.id}">Remove</a>
                     </td>
                 </tr>
             </table>
