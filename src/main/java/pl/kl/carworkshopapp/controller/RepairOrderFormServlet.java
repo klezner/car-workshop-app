@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @WebServlet(urlPatterns = "/order/form", name = "Add repair order")
@@ -38,6 +39,13 @@ public class RepairOrderFormServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String modifiedRepairOrderIdString = request.getParameter("modifiedRepairOrderId");
+        Long modifiedRepairOrderId = null;
+
+        if (modifiedRepairOrderIdString != null && !modifiedRepairOrderIdString.isEmpty()) {
+            modifiedRepairOrderId = Long.parseLong(modifiedRepairOrderIdString);
+        }
+
         long carId = Long.parseLong(request.getParameter("carId"));
 
         Optional<Car> carOptional = carEntityDao.findById(carId, Car.class);
@@ -48,6 +56,18 @@ public class RepairOrderFormServlet extends HttpServlet {
             RepairOrder repairOrder = new RepairOrder();
             repairOrder.setOrderContents(request.getParameter("order_contents"));
             repairOrder.setOrderClosed(request.getParameter("order_closed") != null);
+
+            if (modifiedRepairOrderId != null) {
+                repairOrder.setId(modifiedRepairOrderId);
+                repairOrder.setCreationDate(LocalDateTime.parse(request.getParameter("modifiedRepairOrderCreationDate")));
+
+                if (("on").equals(request.getParameter("order_closed"))) {
+                    repairOrder.setClosingDate(LocalDateTime.now());
+                } else {
+                    repairOrder.setClosingDate(null);
+                }
+            }
+
             repairOrder.setCar(car);
 
             repairOrderEntityDao.saveOrUpdate(repairOrder);

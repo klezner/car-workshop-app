@@ -19,19 +19,19 @@
     <form action="${pageContext.request.contextPath}/mechanic/form" method="post">
         <input type="hidden" value="${requestScope.modifiedMechanic.id}" readonly name="modifiedMechanicId">
         <div>
-            <label>First name:</label>
+            <label>First name</label>
             <input type="text" value="${requestScope.modifiedMechanic.firstName}" name="first_name"/>
         </div>
         <div>
-            <label>Last name:</label>
+            <label>Last name</label>
             <input type="text" value="${requestScope.modifiedMechanic.lastName}" name="last_name"/>
         </div>
         <div>
-            <label>Date of birth:</label>
+            <label>Date of birth</label>
             <input type="date" value="${requestScope.modifiedMechanic.birthDate}" name="birth_date">
         </div>
         <div>
-            <label>Employment level:</label>
+            <label>Employment level</label>
             <select name="employment_level">
                 <c:forEach items="${requestScope.availableEmploymentLevels}" var="employmentLevel">
                     <option value="${employmentLevel}"
@@ -44,7 +44,7 @@
             </select>
         </div>
         <div>
-            <label>Salary:</label>
+            <label>Salary</label>
             <input type="number" value="${requestScope.modifiedMechanic.salary}" step="1" min="0" max="20000" name="salary"/>
         </div>
         <button type="reset">Reset</button>

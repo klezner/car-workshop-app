@@ -18,14 +18,18 @@
         <jsp:include page="navigator.jsp"/>
         <form action="${pageContext.request.contextPath}/order/form" method="post">
             <input type="hidden" value="${requestScope.carId}" readonly name="carId"/>
+            <input type="hidden" value="${requestScope.modifiedRepairOrder.id}" readonly name="modifiedRepairOrderId"/>
+            <input type="hidden" value="${requestScope.modifiedRepairOrder.creationDate}" readonly name="modifiedRepairOrderCreationDate"/>
             <div>
-                <label>Order contens:</label>
-                <input type="text" name="order_contents"/>
+                <label>Order contens</label>
+                <input type="text" value="${requestScope.modifiedRepairOrder.orderContents}" name="order_contents"/>
             </div>
             <div>
-                <label>Order closed:</label>
-                <input type="checkbox" name="order_closed"/>
-                <span/>
+                <label>Order closed<br/>
+                    <input type="checkbox" name="order_closed"
+                    <c:if test="${requestScope.modifiedRepairOrder.orderClosed}">checked</c:if>/>
+                    <span/>
+                </label>
             </div>
             <button type="reset">Reset</button>
             <button type="submit">Submit</button>

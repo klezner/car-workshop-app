@@ -69,6 +69,7 @@
                         <th>Creation date</th>
                         <th>Order closed</th>
                         <th>Closing date</th>
+                        <th>Mechanic</th>
                         <th>Actions</th>
                         <th>Add mechanic for order</th>
                     </tr>
@@ -79,8 +80,11 @@
                             <td>${repairOrder.creationDate}</td>
                             <td>${repairOrder.orderClosed}</td>
                             <td>${repairOrder.closingDate}</td>
+                            <td>//TODO</td>
                             <td>
-                                <a>Edit</a>
+                                <c:if test="${repairOrder.orderClosed==false}">
+                                    <a href="${pageContext.request.contextPath}/order/edit?id=${repairOrder.id}">Edit</a>
+                                </c:if>
                                 <a>Remove</a>
                             </td>
                             <td>

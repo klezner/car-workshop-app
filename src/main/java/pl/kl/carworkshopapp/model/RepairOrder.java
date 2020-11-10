@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Formula;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -26,7 +27,6 @@ public class RepairOrder {
     private LocalDateTime creationDate;
 
     private boolean orderClosed;
-
     private LocalDateTime closingDate;
 
     @ManyToOne
