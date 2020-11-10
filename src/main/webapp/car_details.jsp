@@ -83,9 +83,9 @@
                             <td>//TODO</td>
                             <td>
                                 <c:if test="${repairOrder.orderClosed==false}">
-                                    <a href="${pageContext.request.contextPath}/order/edit?id=${repairOrder.id}">Edit</a>
+                                    <a href="${pageContext.request.contextPath}/order/edit?id=${repairOrder.id}">Edit/Close order</a>
                                 </c:if>
-                                <a>Remove</a>
+                                <a href="${pageContext.request.contextPath}/order/remove?id=${repairOrder.id}">Remove</a>
                             </td>
                             <td>
                                 <a>Add mechanic</a>
