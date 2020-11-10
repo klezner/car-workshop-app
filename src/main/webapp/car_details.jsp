@@ -47,14 +47,52 @@
                     <tr>
                         <th>Actions</th>
                         <td>
-                            <a href="${pageContext.request.contextPath}/car/edit?id=${carToDisplay.id}">Edit</a><br/>
-                            <a href="${pageContext.request.contextPath}/car/remove?id=${carToDisplay.id}">Remove</a>
+                            <a href="${pageContext.request.contextPath}/car/edit?id=${requestScope.carToDisplay.id}">Edit</a><br/>
+                            <a href="${pageContext.request.contextPath}/car/remove?id=${requestScope.carToDisplay.id}">Remove</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Add order for car</th>
+                        <td>
+                            <a href="${pageContext.request.contextPath}/order/form?carId=${requestScope.carToDisplay.id}">Add order</a>
                         </td>
                     </tr>
                 </table>
             </div>
-            <a href="${pageContext.request.contextPath}/cars">Back to cars list</a>
+            <a href="${pageContext.request.contextPath}/cars">Back to car list</a>
+            <div>
+                <h1>Orders:</h1>
+                <table>
+                    <tr>
+                        <th>Id</th>
+                        <th>Order contents</th>
+                        <th>Creation date</th>
+                        <th>Order closed</th>
+                        <th>Closing date</th>
+                        <th>Actions</th>
+                        <th>Add mechanic for order</th>
+                    </tr>
+                    <c:forEach items="${requestScope.carToDisplay.repairOrderSet}" var="repairOrder">
+                        <tr>
+                            <td>${repairOrder.id}</td>
+                            <td>${repairOrder.orderContents}</td>
+                            <td>${repairOrder.creationDate}</td>
+                            <td>${repairOrder.orderClosed}</td>
+                            <td>${repairOrder.closingDate}</td>
+                            <td>
+                                <a>Edit</a>
+                                <a>Remove</a>
+                            </td>
+                            <td>
+                                <a>Add mechanic</a>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </table>
+            </div>
+            <a href="${pageContext.request.contextPath}/cars">Back to car list</a>
         </div>
     </div>
+    <jsp:include page="footers.jsp"/>
 </body>
 </html>
