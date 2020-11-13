@@ -14,36 +14,35 @@
     <jsp:include page="headers.jsp"/>
 </head>
 <body>
-<div class="container">
-    <jsp:include page="navigator.jsp"/>
-    <table>
-        <tr>
-            <th>Car name</th>
-            <th>Registration number</th>
-            <th>Actions</th>
-            <th>Add order for car</th>
-        </tr>
-        <c:forEach items="${requestScope.cars}" var="car">
+    <div class="container">
+        <jsp:include page="navigator.jsp"/>
+        <table>
             <tr>
-                <td>
-                    ${car.name}
-                </td>
-                <td>
-                    ${car.registrationNumber}
-                </td>
-                <td>
-                    <a href="${pageContext.request.contextPath}/car/details?id=${car.id}">Details</a>
-                    <a href="${pageContext.request.contextPath}/car/edit?id=${car.id}">Edit</a>
-                    <a href="${pageContext.request.contextPath}/car/remove?id=${car.id}">Remove</a>
-                </td>
-                <td>
-                    <a href="${pageContext.request.contextPath}/order/form?carId=${car.id}">Add order</a>
-                </td>
+                <th>Car name</th>
+                <th>Registration number</th>
+                <th>Actions</th>
+                <th>Add order for car</th>
             </tr>
-        </c:forEach>
-    <a href="${pageContext.request.contextPath}/index.jsp">Back to main page</a>
-</div>
-<jsp:include page="footers.jsp"/>
+            <c:forEach items="${requestScope.cars}" var="car">
+                <tr>
+                    <td>
+                        ${car.name}
+                    </td>
+                    <td>
+                        ${car.registrationNumber}
+                    </td>
+                    <td>
+                        <a href="${pageContext.request.contextPath}/car/details?id=${car.id}">Details</a>
+                        <a href="${pageContext.request.contextPath}/car/edit?id=${car.id}">Edit</a>
+                        <a href="${pageContext.request.contextPath}/car/remove?id=${car.id}">Remove</a>
+                    </td>
+                    <td>
+                        <a href="${pageContext.request.contextPath}/order/form?carId=${car.id}">Add order</a>
+                    </td>
+                </tr>
+            </c:forEach>
+    </div>
+    <jsp:include page="footers.jsp"/>
 </body>
 </html>
 

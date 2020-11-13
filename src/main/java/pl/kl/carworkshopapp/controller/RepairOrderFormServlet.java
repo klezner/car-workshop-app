@@ -81,6 +81,6 @@ public class RepairOrderFormServlet extends HttpServlet {
 
             repairOrderEntityDao.saveOrUpdate(repairOrder);
         }
-        response.sendRedirect(request.getContextPath() + "/car/details?id=" + carId);
+        response.sendRedirect(request.getContextPath() + "/orders");
     }
 }

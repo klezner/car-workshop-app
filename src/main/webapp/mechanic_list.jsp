@@ -14,36 +14,35 @@
     <jsp:include page="headers.jsp"/>
 </head>
 <body>
-<div class="container">
-    <jsp:include page="navigator.jsp"/>
-    <table>
-        <tr>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>Employment level</th>
-            <th>Actions</th>
-        </tr>
-        <c:forEach items="${requestScope.mechanics}" var="mechanic">
+    <div class="container">
+        <jsp:include page="navigator.jsp"/>
+        <table>
             <tr>
-                <td>
-                        ${mechanic.firstName}
-                </td>
-                <td>
-                        ${mechanic.lastName}
-                </td>
-                <td>
-                        ${mechanic.employmentLevel.commonName}
-                </td>
-                <td>
-                    <a href="${pageContext.request.contextPath}/mechanic/details?id=${mechanic.id}">Details</a>
-                    <a href="${pageContext.request.contextPath}/mechanic/edit?id=${mechanic.id}">Edit</a>
-                    <a href="${pageContext.request.contextPath}/mechanic/remove?id=${mechanic.id}">Remove</a>
-                </td>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Employment level</th>
+                <th>Actions</th>
             </tr>
-        </c:forEach>
-    </table>
-    <a href="${pageContext.request.contextPath}/index.jsp">Back to main page</a>
-</div>
-<jsp:include page="footers.jsp"/>
+            <c:forEach items="${requestScope.mechanics}" var="mechanic">
+                <tr>
+                    <td>
+                            ${mechanic.firstName}
+                    </td>
+                    <td>
+                            ${mechanic.lastName}
+                    </td>
+                    <td>
+                            ${mechanic.employmentLevel.commonName}
+                    </td>
+                    <td>
+                        <a href="${pageContext.request.contextPath}/mechanic/details?id=${mechanic.id}">Details</a>
+                        <a href="${pageContext.request.contextPath}/mechanic/edit?id=${mechanic.id}">Edit</a>
+                        <a href="${pageContext.request.contextPath}/mechanic/remove?id=${mechanic.id}">Remove</a>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
+    <jsp:include page="footers.jsp"/>
 </body>
 </html>

@@ -76,7 +76,12 @@
                         <tr>
                             <td>${repairOrder.orderContents}</td>
                             <td>${repairOrder.creationDate}</td>
-                            <td>${repairOrder.orderClosed}</td>
+                            <td>
+                                <c:choose>
+                                    <c:when test="${repairOrder.orderClosed==true}">Yes</c:when>
+                                    <c:otherwise>No</c:otherwise>
+                                </c:choose>
+                            </td>
                             <td>${repairOrder.closingDate}</td>
                             <td>
                                 <c:forEach items="${repairOrder.mechanicSet}" var="mechanic">
@@ -98,7 +103,6 @@
                     </c:forEach>
                 </table>
             </div>
-            <a href="${pageContext.request.contextPath}/cars">Back to car list</a>
         </div>
     </div>
     <jsp:include page="footers.jsp"/>

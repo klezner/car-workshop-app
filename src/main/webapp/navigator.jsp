@@ -29,4 +29,7 @@
     <li>
         <a href="${pageContext.request.contextPath}/mechanic/form">Mechanic adding form</a>
     </li>
+    <li>
+        <a href="${pageContext.request.contextPath}/orders">Order list</a>
+    </li>
 </ul>

@@ -14,43 +14,43 @@
     <jsp:include page="headers.jsp"/>
 </head>
 <body>
-<div class="container">
-    <jsp:include page="navigator.jsp"/>
-    <h1>${requestScope.mechanicToDisplay.firstName} ${requestScope.mechanicToDisplay.lastName}</h1>
-    <div>
+    <div class="container">
+        <jsp:include page="navigator.jsp"/>
+        <h1>${requestScope.mechanicToDisplay.firstName} ${requestScope.mechanicToDisplay.lastName}</h1>
         <div>
-            <table>
-                <tr>
-                    <th>First name</th>
-                    <td>${requestScope.mechanicToDisplay.firstName}</td>
-                </tr>
-                <tr>
-                    <th>Last name</th>
-                    <td>${requestScope.mechanicToDisplay.lastName}</td>
-                </tr>
-                <tr>
-                    <th>Date of birth</th>
-                    <td>${requestScope.mechanicToDisplay.birthDate}</td>
-                </tr>
-                <tr>
-                    <th>Employment level</th>
-                    <td>${requestScope.mechanicToDisplay.employmentLevel.commonName}</td>
-                </tr>
-                <tr>
-                    <th>Salary</th>
-                    <td>${requestScope.mechanicToDisplay.salary}</td>
-                </tr>
-                <tr>
-                    <th>Actions</th>
-                    <td>
-                        <a href="${pageContext.request.contextPath}/mechanic/edit?id=${mechanicToDisplay.id}">Edit</a><br/>
-                        <a href="${pageContext.request.contextPath}/mechanic/remove?id=${mechanicToDisplay.id}">Remove</a>
-                    </td>
-                </tr>
-            </table>
+            <div>
+                <table>
+                    <tr>
+                        <th>First name</th>
+                        <td>${requestScope.mechanicToDisplay.firstName}</td>
+                    </tr>
+                    <tr>
+                        <th>Last name</th>
+                        <td>${requestScope.mechanicToDisplay.lastName}</td>
+                    </tr>
+                    <tr>
+                        <th>Date of birth</th>
+                        <td>${requestScope.mechanicToDisplay.birthDate}</td>
+                    </tr>
+                    <tr>
+                        <th>Employment level</th>
+                        <td>${requestScope.mechanicToDisplay.employmentLevel.commonName}</td>
+                    </tr>
+                    <tr>
+                        <th>Salary</th>
+                        <td>${requestScope.mechanicToDisplay.salary}</td>
+                    </tr>
+                    <tr>
+                        <th>Actions</th>
+                        <td>
+                            <a href="${pageContext.request.contextPath}/mechanic/edit?id=${mechanicToDisplay.id}">Edit</a><br/>
+                            <a href="${pageContext.request.contextPath}/mechanic/remove?id=${mechanicToDisplay.id}">Remove</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
-        <a href="${pageContext.request.contextPath}/mechanics">Back to mechanics list</a>
     </div>
-</div>
+    <jsp:include page="footers.jsp"/>
 </body>
 </html>
