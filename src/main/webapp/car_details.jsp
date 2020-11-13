@@ -16,8 +16,9 @@
 <body>
     <div class="container">
         <jsp:include page="navigator.jsp"/>
-        <h1>Car: ${requestScope.carToDisplay.name} / ${requestScope.carToDisplay.registrationNumber}</h1>
+        <h1>${requestScope.carToDisplay.name} / ${requestScope.carToDisplay.registrationNumber}</h1>
         <div>
+            <input type="hidden" value="${requestScope.carToDisplay.id}" readonly name="carId">
             <div>
                 <table>
                     <tr>
@@ -59,12 +60,10 @@
                     </tr>
                 </table>
             </div>
-            <a href="${pageContext.request.contextPath}/cars">Back to car list</a>
             <div>
                 <h1>Orders:</h1>
                 <table>
                     <tr>
-                        <th>Id</th>
                         <th>Order contents</th>
                         <th>Creation date</th>
                         <th>Order closed</th>
@@ -75,20 +74,25 @@
                     </tr>
                     <c:forEach items="${requestScope.carToDisplay.repairOrderSet}" var="repairOrder">
                         <tr>
-                            <td>${repairOrder.id}</td>
                             <td>${repairOrder.orderContents}</td>
                             <td>${repairOrder.creationDate}</td>
                             <td>${repairOrder.orderClosed}</td>
                             <td>${repairOrder.closingDate}</td>
-                            <td>//TODO</td>
+                            <td>
+                                <c:forEach items="${repairOrder.mechanicSet}" var="mechanic">
+                                    ${mechanic.firstName} ${mechanic.lastName}<br/>
+                                </c:forEach>
+                            </td>
                             <td>
                                 <c:if test="${repairOrder.orderClosed==false}">
-                                    <a href="${pageContext.request.contextPath}/order/edit?id=${repairOrder.id}">Edit/Close order</a>
-                                </c:if>
+                                    <a href="${pageContext.request.contextPath}/order/edit?id=${repairOrder.id}">Edit/Close</a>
+                                </c:if><br/>
                                 <a href="${pageContext.request.contextPath}/order/remove?id=${repairOrder.id}">Remove</a>
                             </td>
                             <td>
-                                <a>Add mechanic</a>
+                                <c:if test="${repairOrder.orderClosed==false}">
+                                    <a href="${pageContext.request.contextPath}/order/mechanic/edit?id=${repairOrder.id}">Add mechanic</a><br/>
+                                </c:if>
                             </td>
                         </tr>
                     </c:forEach>

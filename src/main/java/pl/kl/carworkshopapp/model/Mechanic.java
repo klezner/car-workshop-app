@@ -1,11 +1,10 @@
 package pl.kl.carworkshopapp.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @AllArgsConstructor
@@ -30,4 +29,7 @@ public class Mechanic {
 
     @Column(nullable = false)
     private Integer salary;
+
+    @ManyToMany(mappedBy = "mechanicSet")
+    private Set<RepairOrder> repairOrderSet;
 }

@@ -10,13 +10,13 @@
 <%@ page isELIgnored="false" %>
 <html>
 <head>
-    <title>Car Details</title>
+    <title>Mechanic Details</title>
     <jsp:include page="headers.jsp"/>
 </head>
 <body>
 <div class="container">
     <jsp:include page="navigator.jsp"/>
-    <h1>Mechanic: ${requestScope.mechanicToDisplay.firstName} ${requestScope.mechanicToDisplay.lastName}</h1>
+    <h1>${requestScope.mechanicToDisplay.firstName} ${requestScope.mechanicToDisplay.lastName}</h1>
     <div>
         <div>
             <table>

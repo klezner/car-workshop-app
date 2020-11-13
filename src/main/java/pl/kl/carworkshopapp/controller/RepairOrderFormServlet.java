@@ -2,6 +2,7 @@ package pl.kl.carworkshopapp.controller;
 
 import pl.kl.carworkshopapp.database.EntityDao;
 import pl.kl.carworkshopapp.model.Car;
+import pl.kl.carworkshopapp.model.Mechanic;
 import pl.kl.carworkshopapp.model.RepairOrder;
 
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Optional;
+import java.util.Set;
 
 @WebServlet(urlPatterns = "/order/form", name = "Add repair order")
 public class RepairOrderFormServlet extends HttpServlet {
@@ -60,9 +62,11 @@ public class RepairOrderFormServlet extends HttpServlet {
             if (modifiedRepairOrderId != null) {
                 repairOrder.setId(modifiedRepairOrderId);
                 repairOrder.setCreationDate(LocalDateTime.parse(request.getParameter("modifiedRepairOrderCreationDate")));
+                Set<Mechanic> mechanicSet = repairOrder.getMechanicSet();
 
                 if (("on").equals(request.getParameter("order_closed"))) {
                     repairOrder.setClosingDate(LocalDateTime.now());
+                    repairOrder.setMechanicSet(mechanicSet);
                 } else {
                     repairOrder.setClosingDate(null);
                 }
