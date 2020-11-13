@@ -27,7 +27,6 @@ public class RepairOrderMechanicEditServlet extends HttpServlet {
         }
 
         long repairOrderId = Long.parseLong(repairOrderIdString);
-        System.out.println(repairOrderId);
 
         Optional<RepairOrder> repairOrderOptional = repairOrderEntityDao.findById(repairOrderId, RepairOrder.class);
 

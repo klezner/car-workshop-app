@@ -62,16 +62,21 @@ public class RepairOrderFormServlet extends HttpServlet {
             if (modifiedRepairOrderId != null) {
                 repairOrder.setId(modifiedRepairOrderId);
                 repairOrder.setCreationDate(LocalDateTime.parse(request.getParameter("modifiedRepairOrderCreationDate")));
-                Set<Mechanic> mechanicSet = repairOrder.getMechanicSet();
 
                 if (("on").equals(request.getParameter("order_closed"))) {
                     repairOrder.setClosingDate(LocalDateTime.now());
-                    repairOrder.setMechanicSet(mechanicSet);
                 } else {
                     repairOrder.setClosingDate(null);
                 }
-            }
 
+                Optional<RepairOrder> modifiedRepairOrderOptional = repairOrderEntityDao.findById(modifiedRepairOrderId, RepairOrder.class);
+
+                if (modifiedRepairOrderOptional.isPresent()) {
+                    repairOrder.setMechanicSet(modifiedRepairOrderOptional.get().getMechanicSet());
+                } else {
+                    repairOrder.setMechanicSet(null);
+                }
+            }
             repairOrder.setCar(car);
 
             repairOrderEntityDao.saveOrUpdate(repairOrder);

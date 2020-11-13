@@ -19,6 +19,7 @@
         <form action="${pageContext.request.contextPath}/order/form" method="post">
             <input type="hidden" value="${requestScope.carId}" readonly name="carId"/>
             <input type="hidden" value="${requestScope.modifiedRepairOrder.id}" readonly name="modifiedRepairOrderId"/>
+            <input type="hidden" value="${requestScope.modifiedRepairOrder.mechanicSet}" readonly name="modifiedRepairOrderMechanicSet"/>
             <input type="hidden" value="${requestScope.modifiedRepairOrder.creationDate}" readonly name="modifiedRepairOrderCreationDate"/>
             <div>
                 <label>Order contens</label>
